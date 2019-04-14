@@ -36,7 +36,7 @@ public class Main extends Application {
             Scene scene = new Scene(first);
             
             primaryStage.getIcons().add(new Image("images/logo.png"));
-            primaryStage.setTitle("Yatzi");
+            primaryStage.setTitle("Yatzi 1.0");
             primaryStage.setScene(scene);
             primaryStage.show();
             primaryStage.setResizable(false);
