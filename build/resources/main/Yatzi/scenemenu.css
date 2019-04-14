@@ -2,6 +2,34 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+.root {
+    -fx-font-family: Antonio;
+    -fx-font-size: 18;
 
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: -fx-focus-color;
+}
+
+.check-box {
+    -fx-font-size: 12;
+}
+
+#anchor-game {
+    -fx-background-image: url("images/back1_dicepoker.png");
+}
+
+#anchor-menu {
+    -fx-background-image: url("images/back.png");
+}
+
+#checkbox-label {
+    -fx-text-fill: grey;
+    -fx-font-size: 15;
+}
+
+#minorButton {
+    -fx-font-size: 10;
+}
+.playBtn .content {
+    -fx-cursor: hand;
 }

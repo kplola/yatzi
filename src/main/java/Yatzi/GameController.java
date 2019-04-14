@@ -6,6 +6,8 @@
 package Yatzi;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
@@ -14,14 +16,16 @@ import javafx.fxml.Initializable;
  *
  * @author kplola
  */
-public class SceneMenuController implements Initializable {
+public class GameController  {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    private Player player;
+    private List<Player> players = new ArrayList<>();
+     
     
+    // Setup the GAME PLayers
+    public void setPlayers(List<Player> Myplayers) {
+        this.players = Myplayers;
+    } 
+    
+    // Setup the Game board
 }
