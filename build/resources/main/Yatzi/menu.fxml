@@ -24,18 +24,7 @@
         <HBox alignment="CENTER">
             <TextField fx:id="namePlayerTwo" promptText="Player two" />
         </HBox>
-        <HBox alignment="CENTER">
-            <TextField fx:id="namePlayerThree" promptText="Player three" />
-        </HBox>
-        <HBox alignment="CENTER">
-            <TextField fx:id="namePlayerFour" promptText="Player four" />
-        </HBox>
-        <HBox alignment="CENTER">
-            <TextField fx:id="namePlayerFive" promptText="Player five" />
-        </HBox>
-        <HBox alignment="CENTER">
-            <TextField fx:id="namePlayerSix" promptText="Player six" />
-        </HBox>
+    
         <HBox alignment="CENTER" spacing="10.0">
             <Label id="checkbox-label" text="Forced order" />
             <CheckBox fx:id="gameModeForced" alignment="CENTER" mnemonicParsing="false">

@@ -39,18 +39,6 @@ public class MenuController {
     @FXML
     private TextField namePlayerTwo;
     
-     @FXML
-    private TextField namePlayerThree;
-
-    @FXML
-    private TextField namePlayerFour;
-
-    @FXML
-    private TextField namePlayerFive;
-
-    @FXML
-    private TextField namePlayerSix;
-    
     @FXML
     private Button playBtn;
     
@@ -72,37 +60,11 @@ public class MenuController {
                 Bindings.isEmpty(namePlayerOne.textProperty())
         );
         
-         namePlayerThree.disableProperty().bind(
-                Bindings.isEmpty(namePlayerOne.textProperty())
-                        .or(Bindings.isEmpty(namePlayerTwo.textProperty()))
-        );
-
-        namePlayerFour.disableProperty().bind(
-                Bindings.isEmpty(namePlayerOne.textProperty())
-                        .or(Bindings.isEmpty(namePlayerTwo.textProperty()))
-                        .or(Bindings.isEmpty(namePlayerThree.textProperty()))
-        );
-
-        namePlayerFive.disableProperty().bind(
-                Bindings.isEmpty(namePlayerOne.textProperty())
-                        .or(Bindings.isEmpty(namePlayerTwo.textProperty()))
-                        .or(Bindings.isEmpty(namePlayerThree.textProperty()))
-                        .or(Bindings.isEmpty(namePlayerFour.textProperty()))
-        );
-
-        namePlayerSix.disableProperty().bind(
-                Bindings.isEmpty(namePlayerOne.textProperty())
-                        .or(Bindings.isEmpty(namePlayerTwo.textProperty()))
-                        .or(Bindings.isEmpty(namePlayerThree.textProperty()))
-                        .or(Bindings.isEmpty(namePlayerFour.textProperty()))
-                        .or(Bindings.isEmpty(namePlayerFive.textProperty()))
-        );
-        
     }  
     
-    private boolean enableGameMode() { // checking the game mode
+  /*  private boolean enableGameMode() { // checking the game mode
         return gameMode.isSelected();
-    }
+    } */
     
     private List<Player> setupPlayers() { // Setup players at the beginning of the game from class Player 
         List<Player> players = new ArrayList<>();
