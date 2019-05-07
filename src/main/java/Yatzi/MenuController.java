@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.event.Event;
@@ -60,19 +61,19 @@ public class MenuController {
     @FXML
     public void startGame(Event event) throws IOException {
         List<Player> yatziPlayers = setupPlayers();
-        
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
-        
+       
         Parent parent = fxmlLoader.load();
         GameController gameController = fxmlLoader.getController();
         gameController.setPlayers(yatziPlayers);  // Getting the entry players to GameController players list
        
-        gameController.setupBoard();
-        Scene scene = new Scene(parent);
         
+        Scene scene = new Scene(parent);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+        gameController.setupBoard();
+        
     }
     
     private List<Player> setupPlayers() { // Setup players at the beginning of the game from class Player 

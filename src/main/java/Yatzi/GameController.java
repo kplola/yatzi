@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.util.Duration;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -143,7 +144,7 @@ public class GameController  {
         grid.add(new Label("Yatzi"), 0, 17);
         grid.add(new Label("Total"), 0, 18);
         
-        for (int column = 0; column < players.size() + 1; column++ ) {
+        for (int column = 1; column < players.size() + 1; column++ ) {
             double width = grid.getColumnConstraints().get(0).getPrefWidth();
             double height = grid.getRowConstraints().get(0).getPrefHeight();
             
@@ -154,13 +155,13 @@ public class GameController  {
             rec.setWidth(width);
             rec.setHeight(height - 5);
             rec.setOpacity(0);
-//            rec.setFill(Color.web(colors[column - 1]));
+            rec.setFill(Color.web(colors[column - 1]));
             panePlayer.getChildren().add(rec);
             
             Label labelName = new Label();
             panePlayer.getChildren().add(labelName);
             
-            String playerName = players.get(column).getName();
+            String playerName = players.get(column - 1).getName();
             labelName.setText(playerName);
             
             for (Category category: Category.values()) {
@@ -189,6 +190,7 @@ public class GameController  {
         highlightCurrentPlayer();
     }
     
+    // set the turn of the next player
     private void nextPlayer() {
         Player lastPlayer = players.get(players.size() - 1);
         currentPlayerIndex = lastPlayer == currentPlayer() ? 0 : currentPlayerIndex + 1;
@@ -212,12 +214,14 @@ public class GameController  {
             int row = 0;
             
             StackPane stackPane = (StackPane) getNodeFromGridPane(grid, column, row);
-            Rectangle rectangle = (Rectangle) stackPane.getChildren().get(0);
+          //  Rectangle rectangle = (Rectangle) stackPane.getChildren().get(0);
+            
+          
             
             if (i == currentPlayerIndex) {
-                rectangle.setOpacity(1.0);
+                stackPane.setOpacity(1.0);
             } else {
-                rectangle.setOpacity(0.0);
+                stackPane.setOpacity(0.0);
             }
         }
     }
@@ -610,7 +614,7 @@ public class GameController  {
         }
         
         clearBoard();
-        setupBoard();
+        this.setupBoard();
         
         scorePane.setVisible(false);
         rollingPane.setVisible(true);
