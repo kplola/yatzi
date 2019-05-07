@@ -52,7 +52,7 @@ public class Player {
         defaultScore();
     }
     
-    // Set default score
+    // Set default score ( 0 )
     private void defaultScore() {
         scores.put(Category.SUM, 0);
         scores.put(Category.BONUS, 0);

@@ -407,7 +407,7 @@ public class GameController  {
     }
     
     public void completeGame() { 
-        // sort based on total
+        
         List<Player> sortedPlayers = new ArrayList<>();
         for (Player player : players) {
             int playerTotal = player.getScores().get(Category.TOTAL);
