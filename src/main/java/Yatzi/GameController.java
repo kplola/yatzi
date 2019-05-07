@@ -214,14 +214,13 @@ public class GameController  {
             int row = 0;
             
             StackPane stackPane = (StackPane) getNodeFromGridPane(grid, column, row);
-          //  Rectangle rectangle = (Rectangle) stackPane.getChildren().get(0);
+            Rectangle rectangle = (Rectangle) stackPane.getChildren().get(0);
             
-          
             
             if (i == currentPlayerIndex) {
-                stackPane.setOpacity(1.0);
+                rectangle.setOpacity(1.0);
             } else {
-                stackPane.setOpacity(0.0);
+                rectangle.setOpacity(0.0);
             }
         }
     }
