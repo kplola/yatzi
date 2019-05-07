@@ -15,11 +15,16 @@
 }
 
 #anchor-game {
-    -fx-background-image: url("images/back1_dicepoker.png");
+    -fx-background-image: url("/images/back1_dicepoker.png");
+    -fx-background-size: stretch;
+    -fx-background-repeat: no-repeat;
+    
 }
 
 #anchor-menu {
-    -fx-background-image: url("images/back.png");
+    -fx-background-image: url("/images/back.png");
+    -fx-background-size: stretch;
+    -fx-background-repeat: no-repeat;
 }
 
 #checkbox-label {

@@ -7,13 +7,10 @@ package Yatzi;
  */
 
 
-
-import java.net.URL;
 import javafx.beans.binding.Bindings;
 import javafx.scene.Node;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -43,9 +40,6 @@ public class MenuController {
     private Button playBtn;
     
     @FXML
-    private CheckBox gameMode;
-    
-    @FXML
     public void initialize() {
         playerNames = new TextField[]{ // Defining players
             namePlayerOne,
@@ -62,9 +56,24 @@ public class MenuController {
         
     }  
     
-  /*  private boolean enableGameMode() { // checking the game mode
-        return gameMode.isSelected();
-    } */
+    
+    @FXML
+    public void startGame(Event event) throws IOException {
+        List<Player> yatziPlayers = setupPlayers();
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
+        
+        Parent parent = fxmlLoader.load();
+        GameController gameController = fxmlLoader.getController();
+        gameController.setPlayers(yatziPlayers);  // Getting the entry players to GameController players list
+       
+        gameController.setupBoard();
+        Scene scene = new Scene(parent);
+        
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
     
     private List<Player> setupPlayers() { // Setup players at the beginning of the game from class Player 
         List<Player> players = new ArrayList<>();
@@ -76,22 +85,5 @@ public class MenuController {
                     
         }
         return players;
-    }
-    
-    public void startGame(Event event) throws IOException {
-        List<Player> yatziPlayers = setupPlayers();
-        
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("game.fxml"));
-        
-        Parent parent = fxmlLoader.load();
-        GameController gameController = fxmlLoader.getController();
-        gameController.setPlayers(yatziPlayers);  // Getting the entry players to GameController players list
-       // gameController.setGameMode(enableGameMode());
-       // gameController.setupBoard();
-        Scene scene = new Scene(parent);
-        
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
     }
 }

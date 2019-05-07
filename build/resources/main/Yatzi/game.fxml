@@ -1,14 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="864.0" prefWidth="1224.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Yatzi.GameController">
-    <stylesheets>
-        <URL value="@/Yatzi/scenemenu.css"/>
-    </stylesheets>
+<AnchorPane id="anchor-game" stylesheets = "@scenemenu.css" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Yatzi.GameController">
+    <BorderPane>
+        <right>
+            <StackPane BorderPane.alignment="CENTER">
+                <ImageView pickOnBounds="true" preserveRatio="true">
+                    <Image url="/images/board.png" />
+                </ImageView>
+                <GridPane fx:id="grid" alignment="CENTER" hgap="3.0" vgap="3.0">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="111.0" />
+                        <ColumnConstraints prefWidth="45.0" />
+                        <ColumnConstraints prefWidth="45.0" />
+                        <ColumnConstraints prefWidth="45.0" />
+                        <ColumnConstraints prefWidth="45.0" />
+                        <ColumnConstraints prefWidth="45.0" />
+                        <ColumnConstraints prefWidth="45.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                        <RowConstraints prefHeight="23.0" />
+                    </rowConstraints>
+                    <StackPane.margin>
+                        <Insets left="1.0" top="31.0" />
+                    </StackPane.margin>
+                </GridPane>
+            </StackPane>
+        </right>
+        <center>
+            <BorderPane prefWidth="400" BorderPane.alignment="CENTER">
+                <top>
+                    <HBox alignment="CENTER_LEFT" spacing="5.0" BorderPane.alignment="CENTER">
+                        <Button id="minorButton" mnemonicParsing="false" onMouseClicked="#goToMenu" text="Menu">
+                            <effect>
+                                <Blend />
+                            </effect>
+                        </Button>
+                        <Button id="minorButton" fx:id="btnReset" mnemonicParsing="false" onMouseClicked="#resetGame" text="Reset">
+                            <effect>
+                                <Blend />
+                            </effect>
+                        </Button>
+                        <padding>
+                            <Insets left="5.0" top="19.0" />
+                        </padding>
+                    </HBox>
+                </top>
+            <center>
+               <StackPane BorderPane.alignment="CENTER">
+                  <children>
+                          <VBox fx:id="rollingPane" alignment="CENTER" spacing="15.0">
+                              <HBox alignment="CENTER" spacing="15.0">
+                                  <StackPane>
+                                      <ImageView fx:id="die0Selected" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                                          <Image url="/images/die_selected.png" />
+                                      </ImageView>
+                                      <ImageView fx:id="die0" onMouseClicked="#selectDie" pickOnBounds="true" preserveRatio="true">
+                                          <effect>
+                                            <Blend />
+                                          </effect>
+                                      </ImageView>
+                                  </StackPane>
+                                  <StackPane>
+                                      <ImageView fx:id="die1Selected" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                                          <Image url="/images/die_selected.png" />
+                                      </ImageView>
+                                      <ImageView fx:id="die1" onMouseClicked="#selectDie" pickOnBounds="true" preserveRatio="true">
+                                          <effect>
+                                            <Blend />
+                                          </effect>
+                                      </ImageView>
+                                  </StackPane>
+                                  <StackPane>
+                                      <ImageView fx:id="die2Selected" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                                          <Image url="/images/die_selected.png" />
+                                      </ImageView>
+                                      <ImageView fx:id="die2" onMouseClicked="#selectDie" pickOnBounds="true" preserveRatio="true">
+                                          <effect>
+                                            <Blend />
+                                          </effect>
+                                      </ImageView>
+                                  </StackPane>
+                              </HBox>
+                              <HBox alignment="CENTER" spacing="15.0">
+                                  <StackPane>
+                                      <ImageView fx:id="die3Selected" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                                          <Image url="/images/die_selected.png" />
+                                      </ImageView>
+                                      <ImageView fx:id="die3" onMouseClicked="#selectDie" pickOnBounds="true" preserveRatio="true">
+                                          <effect>
+                                            <Blend />
+                                          </effect>
+                                      </ImageView>
+                                  </StackPane>
+                                  <StackPane>
+                                      <ImageView fx:id="die4Selected" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                                          <Image url="/images/die_selected.png" />
+                                      </ImageView>
+                                      <ImageView fx:id="die4" onMouseClicked="#selectDie" pickOnBounds="true" preserveRatio="true">
+                                          <effect>
+                                            <Blend />
+                                          </effect>
+                                      </ImageView>
+                                  </StackPane>
+                              </HBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                  <Button fx:id="btnRoll" mnemonicParsing="false" onMouseClicked="#roll" prefHeight="40.0" prefWidth="135.0" text="Roll [X]">
+                                      <effect>
+                                            <Blend />
+                                      </effect>
+                                  </Button>
+                              </VBox>
+                          </VBox>
+                     <AnchorPane fx:id="scorePane" visible="false">
+                        <children>
+                           <GridPane alignment="CENTER" vgap="20.0" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                             <columnConstraints>
+                               <ColumnConstraints prefWidth="111.0" />
+                               <ColumnConstraints prefWidth="111.0" />
+                               <ColumnConstraints prefWidth="111.0" />
+                             </columnConstraints>
+                             <rowConstraints>
+                               <RowConstraints prefHeight="23.0" />
+                               <RowConstraints prefHeight="23.0" />
+                               <RowConstraints prefHeight="23.0" />
+                               <RowConstraints prefHeight="23.0" />
+                               <RowConstraints prefHeight="23.0" />
+                               <RowConstraints prefHeight="23.0" />
+                               <RowConstraints prefHeight="23.0" />
+                             </rowConstraints>
+                              <children>
+                                 <StackPane GridPane.columnIndex="0">
+                                    <children>
+                                       <Label text="Rank" />
+                                    </children>
+                                 </StackPane>
+                                  <StackPane GridPane.columnIndex="1">
+                                      <children>
+                                          <Label text="Name" />
+                                      </children>
+                                  </StackPane>
+                                  <StackPane GridPane.columnIndex="2">
+                                      <children>
+                                          <Label text="Score" />
+                                      </children>
+                                  </StackPane>
+                              </children>
+                           </GridPane>
+                        </children>
+                     </AnchorPane>
+                  </children>
+               </StackPane>
+            </center>
+            </BorderPane>
+        </center>
+    </BorderPane>
 </AnchorPane>
